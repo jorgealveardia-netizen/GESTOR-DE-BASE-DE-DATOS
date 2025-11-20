@@ -1,0 +1,162 @@
+/*
+ * Archivo: styles.css
+ * Propósito: Estilos modernos y atractivos para la aplicación de emprendimientos.
+ */
+
+/* 1. Reset y Variables */
+:root {
+    --color-principal: #007bff; /* Azul UNIPAZ */
+    --color-secundario: #6c757d; /* Gris */
+    --color-fondo: #f8f9fa; /* Gris muy claro */
+    --color-tarjeta: #ffffff; /* Blanco */
+    --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 2. Estructura de División de Pantalla (SPLIT LAYOUT) */
+body {
+    min-height: 100vh; 
+    /* El body ya no tiene la imagen de fondo */
+}
+
+.split-container {
+    display: flex; /* Habilita Flexbox */
+    flex-direction: row; /* Divide en filas (izquierda/derecha) */
+    width: 100%;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    overflow: hidden;
+}
+
+.seccion-fondo {
+    flex: 1; /* Ocupa el 50% de la pantalla (IZQUIERDA) */
+    height: 100%;
+
+    /* Estilos de la imagen que antes estaban en el body */
+    background-image: url('1.png'); /* <--- Asegúrate que el nombre sea correcto (1.png o 1.jpg) */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.seccion-login {
+    flex: 1;
+    height: 100%;
+    background-color: #2768a2; /* Alice Blue */
+    /* background-color: #E3F2FD; /* Un azul UNIPAZ muy clarito, como la foto que te pasé antes */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* 3. Contenedores Principales (Tarjetas y Paneles) - Modificado para el login */
+.contenedor {
+    /* **BORRADO** el estilo position: absolute y transform: translate */
+    /* Manteniendo estilos generales de tarjeta */
+    background: var(--color-tarjeta);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--sombra-suave);
+    max-width: 400px; /* Reducido para que se vea bien en el 50% de la pantalla */
+    width: 90%;
+    text-align: center;
+    
+    /* Fondo con opacidad para el formulario */
+    background: rgba(255, 255, 255, 1); /* Blanco sólido o con opacidad si prefieres */
+    backdrop-filter: none; /* No se necesita desenfoque si es blanco sólido */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contenedor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 4. Títulos y Textos */
+h1, h2, h3 {
+    color: var(--color-principal);
+    margin-bottom: 20px;
+}
+
+/* 5. Estilos de Formularios (Inputs y Botones) */
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    border-color: var(--color-principal);
+    outline: none;
+}
+
+input[type="submit"],
+button,
+.boton {
+    background-color: var(--color-principal);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover,
+button:hover,
+.boton:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+    transform: translateY(-2px);
+}
+
+/* 6. Enlaces y Mensajes */
+a {
+    color: var(--color-principal);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Estilos específicos de la página de bienvenida (mantener) */
+.rol-status {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: var(--color-tarjeta);
+}
+/* ... otros estilos de roles ... */
+.rol-administrador { background-color: #dc3545; }
+.rol-emprendedor { background-color: #28a745; }
+.rol-normal { background-color: #ffc107; color: #343a40; }
+.rol-invitado { background-color: var(--color-secundario); }
+.rol-desconocido { background-color: #343a40; }
+
+/* Layout de Bienvenida (Ajusta el ancho máximo para esta página) */
+.contenedor-bienvenida {
+    max-width: 800px;
+    padding: 40px;
+}
