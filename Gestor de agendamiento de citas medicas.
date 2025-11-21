@@ -1,0 +1,39 @@
+JORGE LUIS ALVEAR DIAZ 	
+
+Gestor de agendamiento de citas medicas.
+
+Requerimientos: 
+
+1.	Objetivo de los requerimientos
+
+El objetivo principal para este documento es detallar los requisitos funcionales y no funcionales de un Sistema Gestor de Agendamiento de Citas Médicas. El sistema será desarrollado en Python Tkinter para administrar los datos de las citas almacenados en Google Sheets, implementando las operaciones básicas de gestión de datos (CRUD).
+2.	Alcance del Sistema
+
+El sistema permite a un usuario final (como un recepcionista o personal administrativo) interactuar con una hoja de cálculo remota de citas para:
+•	Visualizar el listado completo de citas agendadas.
+•	Crear (Escribir) nuevas citas, incluyendo la información del paciente, médico y hora.
+•	Modificar citas existentes (cambio de hora, fecha, o médico).
+•	Eliminar (Borrar) citas (cancelaciones).
+Límites del Alcance: El alcance se limita a la manipulación de los datos de las citas dentro de la hoja de cálculo. No incluye la gestión de múltiples hojas de cálculo, gestión de inventario médico, ni funcionalidades avanzadas como recordatorios automáticos por correo o SMS.
+
+
+
+
+3.	Requerimientos funcionales
+
+Conexión Segura: El sistema debe establecer y mantener una conexión segura con la API de Google Sheets utilizando el archivo de credenciales (Key.json) al inicio de la aplicación para garantizar el acceso a los datos.
+Leer citas: El sistema debe consultar y mostrar la lista completa de citas agendadas en la interfaz de usuario, permitiendo la visualización de todos los campos del modelo de datos.
+Escribir/Crear Citas: El sistema debe permitir la creación de una nueva cita al ingresar todos los datos requeridos (Paciente, Fecha, Hora, Médico, etc.) y guardarlos como una nueva fila en Google Sheets.
+Modificar Citas: El sistema debe permitir la modificación de los datos de una cita existente (ej: cambiar la hora o el médico) seleccionando la cita y actualizando los campos específicos.
+Borrar Citas: El sistema debe permitir la eliminación completa de una cita agendada, borrando la fila correspondiente en Google Sheets.
+Ver los datos: El sistema debe permitir actualizar manualmente la visualización de la lista de citas para mostrar los datos más recientes de la hoja de cálculo.
+
+4.	Requerimientos No Funcionales
+Usabilidad: Este sistema debe contar con una interfaz gráfica amigable (Tkinter) e intuitiva que facilite al personal administrativo la gestión rápida y eficiente de las citas sin requerir conocimientos técnicos.
+Modular: El sistema contará con diversas funcionalidades (Conexión, Lectura, Escritura, etc.). Estas deben estar organizadas en clases y módulos independientes que sean fáciles de mantener, actualizar y realizar pruebas unitaria
+Rendimiento: El tiempo de respuesta para las operaciones de Crear, Modificar, Borrar, o Leer una cita (interacción con Google Sheets) debe ser lo más corto posible para generar una buena experiencia de usuario, idealmente no superando los 3 segundos por operación.
+Robustez: El sistema debe validar la entrada de datos por parte del usuario (ej: formato de fecha y hora, que los campos obligatorios no estén vacíos) para garantizar la integridad y consistencia de los datos en la hoja de cálculo.
+Feedback: El sistema debe proporcionar mensajes de advertencia o confirmación claros al usuario después de cada operación (ej: "Cita Agendada con Éxito", "Error: Fecha Inválida", "Cita Eliminada").
+
+5.	Modelado de datos:
+Actualmente, el sistema interactúa con una única hoja de cálculo donde cada fila representa una cita.
